@@ -1,0 +1,32 @@
+.Itinerary h2 {
+    margin-bottom: 8px;
+}
+
+.itinerary-card {
+    border: 1px solid #949494;
+    border-radius: 32px;
+    padding: 16px 24px;
+}
+
+.day-line {
+    font-weight: 700;
+}
+
+.itinerary-days {
+    display: grid;
+    gap: 16px;
+}
+
+.day-card {
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid gray;
+}
+
+.day-card p {
+    white-space: pre-line;
+}
+
+.day-card h3 {
+    margin-bottom: 8px;
+}

@@ -1,49 +1,32 @@
 .App {
-    max-width: 80%;
-    margin: 32px 24px;
-}
-
-.user-input {
-    margin: 24px auto;
-}
-
-.user-input label, legend {
     display: block;
-    font-weight: 600;
-}
-
-.user-input input, select, fieldset {
-    margin: 8px 8px 12px 0;
-    width: fit-content;
-}
-
-.user-input fieldset label {
-    display: inline-block;
+    margin: 32px auto;
+    max-width: 750px;
     text-align: center;
+    font-family: 'Opens Sans', sans-serif;
 }
 
-.user-input button {
-    margin: 16px auto;
+h1 {
+    width: fit-content;
+    margin: 16px auto 0 auto;
+    padding: 12px 20px;
+    border-radius: 40px;
+    border: none;
+    background-color: #292929;
+    color: #fff;
+    font-weight: 800;
+    letter-spacing: -1px;
+    font-size: 50px;
 }
 
-.itinerary-card {
-    padding: 20px;
-    border: 1px solid #DDD;
-    border-radius: 32px;
+h2 {
+    margin-top: 8px;
+    color: #292929;
+    font-weight: 400;
 }
 
-.day-list {
-    margin-top: 20px;
-    display: grid;
-    gap: 16px;
-}
-
-.day-card {
-    padding: 16px;
-    border-radius: 10px;
-    border: 1px solid #e5e5e5;
-}
-
-.tips-section {
-    margin-top: 20px;
+@media (max-width: 768px) {
+    h1 {
+        font-size: 32px;
+    }
 }
