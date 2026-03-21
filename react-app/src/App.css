@@ -1,0 +1,49 @@
+.App {
+    max-width: 80%;
+    margin: 32px 24px;
+}
+
+.user-input {
+    margin: 24px auto;
+}
+
+.user-input label, legend {
+    display: block;
+    font-weight: 600;
+}
+
+.user-input input, select, fieldset {
+    margin: 8px 8px 12px 0;
+    width: fit-content;
+}
+
+.user-input fieldset label {
+    display: inline-block;
+    text-align: center;
+}
+
+.user-input button {
+    margin: 16px auto;
+}
+
+.itinerary-card {
+    padding: 20px;
+    border: 1px solid #DDD;
+    border-radius: 32px;
+}
+
+.day-list {
+    margin-top: 20px;
+    display: grid;
+    gap: 16px;
+}
+
+.day-card {
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid #e5e5e5;
+}
+
+.tips-section {
+    margin-top: 20px;
+}
