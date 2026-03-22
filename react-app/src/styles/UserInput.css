@@ -1,5 +1,7 @@
 .user-input {
-    margin: 32px 0;
+    display: block;
+    margin: 32px auto;
+    max-width: 750px;
     padding: 24px 32px;
     border: 1px solid gray;
     border-radius: 32px;
