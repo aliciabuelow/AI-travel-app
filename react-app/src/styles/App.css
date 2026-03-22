@@ -1,29 +1,158 @@
-.App {
-    text-align: center;
-    font-family: 'Opens Sans', sans-serif;
+/* ===== CSS Custom Properties (Design Tokens) ===== */
+:root {
+    /* Color Palette */
+    --color-cloud: #f7f6f2;
+    --color-lavender-haze: #c8b6ff;
+    --color-deep-ocean: #0f172a;
+    --color-sky-mist: #cfedea;
+    --color-sunset-coral: #ff8a5b;
+    --color-golden-sand: #f6c76e;
+    
+    /* Semantic Colors */
+    --color-background: var(--color-cloud);
+    --color-foreground: var(--color-deep-ocean);
+    --color-primary: var(--color-sunset-coral);
+    --color-primary-hover: #ff7340;
+    --color-secondary: var(--color-lavender-haze);
+    --color-accent: var(--color-sky-mist);
+    --color-highlight: var(--color-golden-sand);
+    --color-muted: #9ca3af;
+    --color-border: #e5e5e5;
+    --color-card: #ffffff;
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Open Sans', sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-full: 9999px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 200ms ease;
+    --transition-slow: 300ms ease;
 }
 
+/* ===== Global Reset & Base Styles ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Container ===== */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+/* ===== App Layout ===== */
+.App {
+    text-align: center;
+}
+
+/* ===== Typography ===== */
 h1 {
-    width: fit-content;
-    margin: 16px auto 0 auto;
-    padding: 12px 20px;
-    border-radius: 40px;
-    border: none;
-    background-color: #292929;
-    color: #fff;
-    font-weight: 800;
-    letter-spacing: -1px;
-    font-size: 50px;
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 700;
+    color: var(--color-foreground);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-sm);
+    text-wrap: balance;
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-sunset-coral), var(--color-golden-sand));
+    margin: var(--spacing-md) auto 0;
+    border-radius: var(--radius-full);
 }
 
 h2 {
-    margin-top: 8px;
-    color: #292929;
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
     font-weight: 400;
+    color: var(--color-muted);
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+    text-wrap: balance;
 }
 
+/* ===== Decorative Elements ===== */
+.App::before {
+    content: '';
+    position: fixed;
+    top: -200px;
+    right: -200px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--color-lavender-haze) 0%, transparent 70%);
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.App::after {
+    content: '';
+    position: fixed;
+    bottom: -200px;
+    left: -200px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--color-sky-mist) 0%, transparent 70%);
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ===== Responsive Adjustments ===== */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 32px;
+    .container {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: var(--spacing-md);
     }
 }

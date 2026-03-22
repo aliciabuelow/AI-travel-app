@@ -1,32 +1,169 @@
+/* ===== Itinerary Section ===== */
+.Itinerary {
+    margin-top: var(--spacing-2xl);
+    text-align: left;
+}
+
 .Itinerary h2 {
-    margin-bottom: 8px;
-}
-
-.itinerary-card {
-    border: 1px solid #949494;
-    border-radius: 32px;
-    padding: 16px 24px;
-}
-
-.day-line {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: 700;
+    color: var(--color-foreground);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
 }
 
+.Itinerary h2::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-lavender-haze), var(--color-sky-mist));
+    border-radius: var(--radius-full);
+}
+
+/* ===== Itinerary Card Container ===== */
+.itinerary-card {
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ===== Day Cards Grid ===== */
 .itinerary-days {
     display: grid;
-    gap: 16px;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
 }
 
+/* ===== Individual Day Card ===== */
 .day-card {
-    padding: 16px;
-    border-radius: 12px;
-    border: 1px solid gray;
+    position: relative;
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, var(--color-background) 0%, #fff 100%);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    overflow: hidden;
 }
 
-.day-card p {
-    white-space: pre-line;
+.day-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--color-sunset-coral), var(--color-golden-sand));
+    border-radius: var(--radius-full);
 }
 
+.day-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ===== Day Card Title ===== */
 .day-card h3 {
-    margin-bottom: 8px;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-foreground);
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.day-card h3::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-sunset-coral);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* ===== Day Card Content ===== */
+.day-card p {
+    font-size: 0.9375rem;
+    color: #4b5563;
+    line-height: 1.7;
+    white-space: pre-line;
+    padding-left: var(--spacing-sm);
+}
+
+/* ===== Loading State ===== */
+.Itinerary p:only-child {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--color-muted);
+    padding: var(--spacing-2xl);
+}
+
+/* ===== Loading Animation ===== */
+.Itinerary p:only-child::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-sunset-coral);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-right: var(--spacing-sm);
+    vertical-align: middle;
+}
+
+/* ===== Error State ===== */
+.Itinerary p:only-child:has(+ *):not(:has(*))::before {
+    display: none;
+}
+
+/* ===== Decorative Accent ===== */
+.itinerary-card::after {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, var(--color-sky-mist) 0%, transparent 70%);
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+    .itinerary-card {
+        padding: var(--spacing-lg);
+        border-radius: var(--radius-lg);
+    }
+    
+    .day-card {
+        padding: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .Itinerary {
+        margin-top: var(--spacing-xl);
+    }
+    
+    .itinerary-card {
+        padding: var(--spacing-md);
+    }
+    
+    .itinerary-days {
+        gap: var(--spacing-md);
+    }
 }
