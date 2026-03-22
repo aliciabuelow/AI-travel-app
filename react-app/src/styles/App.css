@@ -6,25 +6,20 @@
 }
 
 :root {
-    /* Primary - vibrant lime green (inspired by reference) */
+    /* Primary - lime green */
     --lime: #c6f135;
-    --lime-soft: #d4e861;
-    --lime-dark: #9bc028;
+    --lime-dark: #a8cc2d;
     
-    /* Secondary - soft purple */
+    /* Secondary - purple */
     --purple: #a78bfa;
-    --purple-soft: #c4b5fd;
-    --purple-deep: #7c3aed;
     
-    /* Accent - mint/seafoam */
+    /* Accent - mint */
     --mint: #6ee7b7;
-    --mint-soft: #a7f3d0;
     
-    /* Accent - soft pink */
-    --pink: #f9a8d4;
-    --pink-soft: #fbcfe8;
+    /* Accent - coral */
+    --coral: #fb7185;
     
-    /* Backgrounds - softer navy-tinted darks */
+    /* Backgrounds - clean darks */
     --bg-base: #0f1419;
     --bg-card: #171c24;
     --bg-elevated: #1e2530;
@@ -69,38 +64,6 @@ body {
     margin-bottom: 48px;
 }
 
-/* Badge with lime accent */
-.badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    margin-bottom: 24px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--bg-base);
-    background: var(--lime);
-    border-radius: 100px;
-    box-shadow: 0 4px 20px rgba(198, 241, 53, 0.35);
-}
-
-.badge::before {
-    content: "";
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background-color: var(--bg-base);
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.85); }
-}
-
 h1 {
     margin: 0;
     padding: 0;
@@ -138,25 +101,23 @@ h2 {
     gap: 12px;
     padding: 16px 24px;
     margin-top: 24px;
-    background: rgba(110, 231, 183, 0.1);
-    border: 1px solid rgba(110, 231, 183, 0.25);
-    border-radius: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
     color: var(--mint);
     font-size: 14px;
     font-weight: 500;
 }
 
 .status-message.error {
-    background: rgba(249, 168, 212, 0.1);
-    border-color: rgba(249, 168, 212, 0.25);
-    color: var(--pink);
+    color: var(--coral);
 }
 
 /* Spinner animation */
 .spinner {
     width: 18px;
     height: 18px;
-    border: 2px solid rgba(110, 231, 183, 0.3);
+    border: 2px solid var(--border);
     border-top-color: var(--mint);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
@@ -176,10 +137,5 @@ h2 {
     
     .header {
         margin-bottom: 36px;
-    }
-    
-    .badge {
-        padding: 8px 16px;
-        font-size: 12px;
     }
 }

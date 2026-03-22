@@ -4,35 +4,7 @@
     padding: 32px;
     background-color: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 28px;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Decorative organic shape - top right */
-.user-input::before {
-    content: "";
-    position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 160px;
-    height: 160px;
-    background: radial-gradient(circle, rgba(198, 241, 53, 0.12) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-/* Secondary decorative shape - bottom left */
-.user-input::after {
-    content: "";
-    position: absolute;
-    bottom: -40px;
-    left: -40px;
-    width: 120px;
-    height: 120px;
-    background: radial-gradient(circle, rgba(167, 139, 250, 0.1) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
+    border-radius: 20px;
 }
 
 /* Form grid layout */
@@ -40,8 +12,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    position: relative;
-    z-index: 1;
 }
 
 .form-grid .full-width {
@@ -52,44 +22,15 @@
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
-/* Labels with icon-style prefix */
+/* Labels */
 label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
     font-size: 13px;
     font-weight: 600;
     color: var(--text-secondary);
     letter-spacing: 0.02em;
-}
-
-/* Small colored dot before labels */
-label::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--purple);
-    flex-shrink: 0;
-}
-
-.form-group:nth-child(2) label::before {
-    background: var(--lime);
-}
-
-.form-group:nth-child(3) label::before {
-    background: var(--mint);
-}
-
-.form-group:nth-child(4) label::before {
-    background: var(--pink);
-}
-
-.form-group:nth-child(5) label::before {
-    background: var(--purple-soft);
 }
 
 /* Base input styles */
@@ -97,15 +38,15 @@ input,
 select,
 textarea {
     width: 100%;
-    padding: 16px 20px;
+    padding: 14px 16px;
     font-family: inherit;
     font-size: 15px;
     color: var(--text-primary);
     background-color: var(--bg-elevated);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 10px;
     outline: none;
-    transition: all 0.2s ease;
+    transition: border-color 0.15s ease;
 }
 
 input::placeholder,
@@ -117,15 +58,12 @@ input:hover,
 select:hover,
 textarea:hover {
     border-color: var(--border-hover);
-    background-color: var(--bg-hover);
 }
 
 input:focus,
 select:focus,
 textarea:focus {
     border-color: var(--lime);
-    box-shadow: 0 0 0 3px rgba(198, 241, 53, 0.15);
-    background-color: var(--bg-hover);
 }
 
 /* Select specific styles */
@@ -134,8 +72,8 @@ select {
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 4.5L6 8L9.5 4.5' stroke='%2394a3b8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 16px center;
-    padding-right: 44px;
+    background-position: right 14px center;
+    padding-right: 40px;
 }
 
 select option {
@@ -146,7 +84,7 @@ select option {
 
 /* Textarea specific */
 textarea {
-    min-height: 88px;
+    min-height: 80px;
     resize: vertical;
     line-height: 1.6;
 }
@@ -162,40 +100,34 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
-/* Submit button - vibrant lime */
+/* Submit button */
 button[type="submit"] {
     width: 100%;
     margin-top: 12px;
-    padding: 18px 32px;
+    padding: 16px 28px;
     font-family: inherit;
     font-size: 15px;
     font-weight: 700;
     color: var(--bg-base);
     background: var(--lime);
     border: none;
-    border-radius: 16px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 20px rgba(198, 241, 53, 0.3);
-    position: relative;
-    overflow: hidden;
+    transition: background 0.15s ease, transform 0.1s ease;
 }
 
 button[type="submit"]:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(198, 241, 53, 0.4);
-    background: var(--lime-soft);
+    background: var(--lime-dark);
 }
 
 button[type="submit"]:active:not(:disabled) {
-    transform: translateY(0) scale(0.98);
+    transform: scale(0.98);
 }
 
 button[type="submit"]:disabled {
     background: var(--bg-hover);
     color: var(--text-muted);
     cursor: not-allowed;
-    box-shadow: none;
 }
 
 /* Button loading state */
@@ -219,7 +151,7 @@ button[type="submit"]:disabled {
 @media (max-width: 520px) {
     .user-input {
         padding: 24px;
-        border-radius: 24px;
+        border-radius: 16px;
     }
     
     .form-grid {
@@ -228,14 +160,12 @@ button[type="submit"]:disabled {
     }
     
     button[type="submit"] {
-        padding: 16px 28px;
-        border-radius: 14px;
+        padding: 14px 24px;
     }
     
     input,
     select,
     textarea {
-        padding: 14px 18px;
-        border-radius: 12px;
+        padding: 12px 14px;
     }
 }
