@@ -4,12 +4,12 @@
     margin-top: 32px;
 }
 
-/* Itinerary card wrapper */
+/* Itinerary card wrapper - dark teal style */
 .itinerary-card {
     padding: 32px;
-    background-color: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
+    background-color: var(--bg-card-dark);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
 /* Itinerary header */
@@ -19,15 +19,21 @@
     justify-content: space-between;
     margin-bottom: 24px;
     padding-bottom: 20px;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-dark);
 }
 
 .Itinerary h2 {
     margin: 0;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--text-light);
     letter-spacing: -0.02em;
+}
+
+/* Playful italic accent in header */
+.Itinerary h2 .accent {
+    font-style: italic;
+    font-weight: 500;
 }
 
 /* Trip meta pills */
@@ -41,11 +47,10 @@
 .trip-meta span {
     display: inline-flex;
     align-items: center;
-    padding: 6px 14px;
-    background: var(--bg-elevated);
-    color: var(--text-secondary);
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    border-radius: 20px;
 }
 
 /* Days grid */
@@ -55,65 +60,60 @@
     gap: 12px;
 }
 
-/* Individual day card */
+/* Individual day card - white cards inside dark container */
 .day-card {
     padding: 20px 24px;
-    background-color: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    transition: border-color 0.15s ease;
+    background-color: var(--bg-card-light);
+    border-radius: 16px;
+    transition: transform 0.2s ease;
 }
 
 .day-card:hover {
-    border-color: var(--border-hover);
+    transform: translateY(-2px);
 }
 
 .day-card h3 {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     margin-bottom: 12px;
     font-size: 15px;
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--text-dark);
 }
 
-/* Day number badges */
+/* Day number badges - warm orange pill */
 .day-badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
-    font-size: 13px;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 12px;
+    font-size: 14px;
     font-weight: 700;
-    color: var(--bg-base);
-    background: var(--lime);
-    border-radius: 8px;
+    color: #fff;
+    background: var(--orange);
+    border-radius: 20px;
     flex-shrink: 0;
 }
 
-/* Cycle colors for badges */
-.day-card:nth-child(4n+2) .day-badge {
-    background: var(--purple);
-    color: var(--text-primary);
+/* Alternate badge colors for visual rhythm */
+.day-card:nth-child(3n+2) .day-badge {
+    background: var(--teal-dark);
 }
 
-.day-card:nth-child(4n+3) .day-badge {
-    background: var(--mint);
-}
-
-.day-card:nth-child(4n+4) .day-badge {
-    background: var(--coral);
+.day-card:nth-child(3n+3) .day-badge {
+    background: #64748b;
 }
 
 .day-card p {
     margin: 0;
     font-size: 14px;
     line-height: 1.7;
-    color: var(--text-secondary);
+    color: var(--text-medium);
     white-space: pre-line;
-    padding-left: 44px;
+    padding-left: 50px;
 }
 
 /* Activity items within day */
@@ -121,7 +121,7 @@
     display: flex;
     gap: 12px;
     padding: 12px 0;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-light);
 }
 
 .activity-item:last-child {
@@ -133,12 +133,12 @@
     flex-shrink: 0;
     font-size: 13px;
     font-weight: 600;
-    color: var(--lime);
+    color: var(--orange);
     min-width: 60px;
 }
 
 .activity-description {
-    color: var(--text-secondary);
+    color: var(--text-medium);
     font-size: 14px;
     line-height: 1.6;
 }
@@ -147,7 +147,7 @@
 .empty-state {
     text-align: center;
     padding: 40px 24px;
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.5);
     font-size: 14px;
 }
 
@@ -155,7 +155,7 @@
 @media (max-width: 520px) {
     .itinerary-card {
         padding: 24px;
-        border-radius: 16px;
+        border-radius: 20px;
     }
     
     .itinerary-header {
@@ -166,7 +166,7 @@
     
     .day-card {
         padding: 16px 20px;
-        border-radius: 12px;
+        border-radius: 14px;
     }
     
     .day-card p {
@@ -179,7 +179,7 @@
     }
     
     .trip-meta span {
-        padding: 5px 12px;
+        padding: 6px 14px;
         font-size: 12px;
     }
 }

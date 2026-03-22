@@ -6,33 +6,31 @@
 }
 
 :root {
-    /* Primary - lime green */
-    --lime: #c6f135;
-    --lime-dark: #a8cc2d;
+    /* Primary accent - warm orange */
+    --orange: #f97316;
+    --orange-dark: #ea580c;
     
-    /* Secondary - purple */
-    --purple: #a78bfa;
+    /* Secondary - dark teal for cards */
+    --teal-dark: #134e4a;
+    --teal-deeper: #0d3d3a;
     
-    /* Accent - mint */
-    --mint: #6ee7b7;
+    /* Background - soft sage/mint sky */
+    --bg-sky: #d5e5e1;
+    --bg-sky-light: #e8f0ee;
     
-    /* Accent - coral */
-    --coral: #fb7185;
-    
-    /* Backgrounds - clean darks */
-    --bg-base: #0f1419;
-    --bg-card: #171c24;
-    --bg-elevated: #1e2530;
-    --bg-hover: #262f3d;
-    
-    /* Borders */
-    --border: #2a3441;
-    --border-hover: #3d4a5c;
+    /* Card backgrounds */
+    --bg-card-light: #ffffff;
+    --bg-card-dark: #1a4a46;
     
     /* Text */
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
+    --text-dark: #1a2e2b;
+    --text-medium: #3d5754;
+    --text-light: #f0f7f5;
+    --text-muted: #6b8583;
+    
+    /* Borders */
+    --border-light: rgba(26, 46, 43, 0.1);
+    --border-dark: rgba(255, 255, 255, 0.1);
 }
 
 html {
@@ -40,8 +38,8 @@ html {
 }
 
 body {
-    background-color: var(--bg-base);
-    color: var(--text-primary);
+    background: linear-gradient(180deg, var(--bg-sky-light) 0%, var(--bg-sky) 100%);
+    color: var(--text-dark);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.6;
     min-height: 100vh;
@@ -69,22 +67,23 @@ h1 {
     padding: 0;
     border: none;
     background-color: transparent;
-    color: var(--text-primary);
-    font-weight: 800;
+    color: var(--text-dark);
+    font-weight: 700;
     letter-spacing: -0.03em;
     font-size: clamp(36px, 7vw, 52px);
-    line-height: 1.1;
+    line-height: 1.15;
     text-wrap: balance;
 }
 
-/* Highlighted word in title */
+/* Highlighted word - playful italic style */
 h1 .highlight {
-    color: var(--lime);
+    font-style: italic;
+    color: var(--teal-dark);
 }
 
 h2 {
     margin-top: 16px;
-    color: var(--text-secondary);
+    color: var(--text-medium);
     font-weight: 400;
     font-size: clamp(16px, 3vw, 18px);
     line-height: 1.6;
@@ -101,24 +100,25 @@ h2 {
     gap: 12px;
     padding: 16px 24px;
     margin-top: 24px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    color: var(--mint);
+    background: var(--bg-card-light);
+    border-radius: 16px;
+    color: var(--teal-dark);
     font-size: 14px;
     font-weight: 500;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .status-message.error {
-    color: var(--coral);
+    color: #dc2626;
+    background: #fef2f2;
 }
 
 /* Spinner animation */
 .spinner {
     width: 18px;
     height: 18px;
-    border: 2px solid var(--border);
-    border-top-color: var(--mint);
+    border: 2px solid var(--border-light);
+    border-top-color: var(--orange);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
 }

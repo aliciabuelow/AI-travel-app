@@ -38,8 +38,8 @@ export default function App() {
   return (
     <main className="App">
       <header className="header">
-        <h1>Plan your <span className="highlight">trip</span> in seconds</h1>
-        <h2>Create detailed travel itineraries tailored to your preferences</h2>
+        <h1>Discover the world <span className="highlight">with us</span></h1>
+        <h2>Create personalized travel itineraries tailored to your adventure</h2>
       </header>
       
       <UserInput onSubmit={handleUserInput} loading={loading} />
