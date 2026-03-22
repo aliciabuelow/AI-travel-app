@@ -1,0 +1,14 @@
+:root {
+    --bg-primary: #F7F6F2;
+    --bg-secondary: #D9D9D6;
+    --bg-white: #FFF;
+    --text-primary: #0F172A;
+    --accent-one: #75c967;
+    --accent-two: #CFEDEA;
+    --accent-three: #F6C76E;
+    --accent-four: #FF8A5B;
+}
+
+body {
+    background-color: var(--bg-color);
+}
