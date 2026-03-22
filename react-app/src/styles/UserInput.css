@@ -1,10 +1,28 @@
-/* Form container - white card style */
+/* Form container - white card floating on sky */
 .user-input {
     width: 100%;
-    padding: 32px;
+    padding: 36px;
     background-color: var(--bg-card-light);
-    border-radius: 24px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    border-radius: 28px;
+    box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.02),
+        0 12px 40px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative corner accent */
+.user-input::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--orange-light) 0%, transparent 60%);
+    border-radius: 50%;
+    opacity: 0.6;
+    pointer-events: none;
 }
 
 /* Form grid layout */
@@ -12,6 +30,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .form-grid .full-width {
@@ -25,12 +45,25 @@
     gap: 8px;
 }
 
-/* Labels */
+/* Labels with playful style */
 label {
     font-size: 13px;
     font-weight: 600;
     color: var(--text-medium);
     letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Small decorative dot before labels */
+label::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--orange);
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
 /* Base input styles */
@@ -38,15 +71,15 @@ input,
 select,
 textarea {
     width: 100%;
-    padding: 14px 16px;
+    padding: 14px 18px;
     font-family: inherit;
     font-size: 15px;
     color: var(--text-dark);
-    background-color: var(--bg-sky-light);
+    background-color: var(--bg-sky-top);
     border: 2px solid transparent;
-    border-radius: 12px;
+    border-radius: 14px;
     outline: none;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 input::placeholder,
@@ -57,7 +90,7 @@ textarea::placeholder {
 input:hover,
 select:hover,
 textarea:hover {
-    background-color: var(--bg-sky);
+    background-color: var(--bg-sky-mid);
 }
 
 input:focus,
@@ -65,6 +98,7 @@ select:focus,
 textarea:focus {
     border-color: var(--teal-dark);
     background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(19, 78, 74, 0.1);
 }
 
 /* Select specific styles */
@@ -73,8 +107,8 @@ select {
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 4.5L6 8L9.5 4.5' stroke='%233d5754' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 14px center;
-    padding-right: 40px;
+    background-position: right 16px center;
+    padding-right: 44px;
 }
 
 select option {
@@ -101,29 +135,49 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
-/* Submit button - warm orange */
+/* Submit button - warm orange with playful shape */
 button[type="submit"] {
     width: 100%;
-    margin-top: 12px;
-    padding: 16px 28px;
+    margin-top: 16px;
+    padding: 18px 32px;
     font-family: inherit;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
     color: #fff;
     background: var(--orange);
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.15s ease;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Playful shine effect on button */
+button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+button[type="submit"]:hover:not(:disabled)::before {
+    left: 100%;
 }
 
 button[type="submit"]:hover:not(:disabled) {
     background: var(--orange-dark);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(249, 115, 22, 0.35);
 }
 
 button[type="submit"]:active:not(:disabled) {
     transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.25);
 }
 
 button[type="submit"]:disabled {
@@ -138,6 +192,8 @@ button[type="submit"]:disabled {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    position: relative;
+    z-index: 1;
 }
 
 .button-spinner {
@@ -152,8 +208,15 @@ button[type="submit"]:disabled {
 /* Responsive: Stack on mobile */
 @media (max-width: 520px) {
     .user-input {
-        padding: 24px;
-        border-radius: 20px;
+        padding: 28px;
+        border-radius: 24px;
+    }
+    
+    .user-input::before {
+        width: 80px;
+        height: 80px;
+        top: -25px;
+        right: -25px;
     }
     
     .form-grid {
@@ -162,12 +225,12 @@ button[type="submit"]:disabled {
     }
     
     button[type="submit"] {
-        padding: 14px 24px;
+        padding: 16px 28px;
     }
     
     input,
     select,
     textarea {
-        padding: 12px 14px;
+        padding: 14px 16px;
     }
 }
