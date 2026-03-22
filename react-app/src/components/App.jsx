@@ -18,29 +18,47 @@ export default function App() {
 
     try {
       const response = await axios.post("http://localhost:3000/generate", data);
-      console.log("API Response:", response.data)
       
       const result = response.data.itinerary;
       if (result.includes("INVALID_DESTINATION")) {
         setError("Please enter a valid destination.");
+        setLoading(false);
         return;
       }
       setItinerary(result);
 
     } catch (error) {
-      setError("Sorry, something went wrong. Please try again.");
-      console.error(error)
+      setError("Something went wrong. Please try again.");
+      console.error(error);
     }
 
     setLoading(false);
   }
 
   return (
-  <div className="App">
-    <h1>Plan a trip in seconds</h1>
-    <h2>Generate a detailed travel itinerary</h2>
-    <UserInput onSubmit={handleUserInput} loading={loading} />
-    <Itinerary userData={userData} itinerary={itinerary} loading={loading} error={error} />
-  </div>
-  )
+    <main className="App">
+      <header className="header">
+        <span className="badge">Travel Planner</span>
+        <h1>Plan your trip in seconds</h1>
+        <h2>Create detailed travel itineraries tailored to your preferences</h2>
+      </header>
+      
+      <UserInput onSubmit={handleUserInput} loading={loading} />
+      
+      {loading && (
+        <div className="status-message">
+          <div className="spinner" aria-hidden="true"></div>
+          <span>Creating your itinerary...</span>
+        </div>
+      )}
+      
+      {error && !loading && (
+        <div className="status-message error" role="alert">
+          <span>{error}</span>
+        </div>
+      )}
+      
+      <Itinerary userData={userData} itinerary={itinerary} loading={loading} error={error} />
+    </main>
+  );
 }
