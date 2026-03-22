@@ -4,21 +4,35 @@
     padding: 32px;
     background-color: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 24px;
+    border-radius: 28px;
     position: relative;
     overflow: hidden;
 }
 
-/* Subtle decorative gradient accent */
+/* Decorative organic shape - top right */
 .user-input::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--coral) 0%, var(--amber) 50%, var(--teal) 100%);
-    opacity: 0.8;
+    top: -60px;
+    right: -60px;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(198, 241, 53, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Secondary decorative shape - bottom left */
+.user-input::after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: -40px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
 }
 
 /* Form grid layout */
@@ -26,6 +40,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .form-grid .full-width {
@@ -36,18 +52,44 @@
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
-/* Labels */
+/* Labels with icon-style prefix */
 label {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     font-size: 13px;
     font-weight: 600;
     color: var(--text-secondary);
     letter-spacing: 0.02em;
+}
+
+/* Small colored dot before labels */
+label::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--purple);
+    flex-shrink: 0;
+}
+
+.form-group:nth-child(2) label::before {
+    background: var(--lime);
+}
+
+.form-group:nth-child(3) label::before {
+    background: var(--mint);
+}
+
+.form-group:nth-child(4) label::before {
+    background: var(--pink);
+}
+
+.form-group:nth-child(5) label::before {
+    background: var(--purple-soft);
 }
 
 /* Base input styles */
@@ -55,45 +97,45 @@ input,
 select,
 textarea {
     width: 100%;
-    padding: 14px 18px;
+    padding: 16px 20px;
     font-family: inherit;
     font-size: 15px;
     color: var(--text-primary);
     background-color: var(--bg-elevated);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 14px;
     outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 input::placeholder,
 textarea::placeholder {
-    color: #525252;
+    color: var(--text-muted);
 }
 
 input:hover,
 select:hover,
 textarea:hover {
     border-color: var(--border-hover);
-    background-color: #1f1f1f;
+    background-color: var(--bg-hover);
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-    border-color: var(--teal);
-    box-shadow: 0 0 0 3px rgba(46, 211, 183, 0.15);
-    background-color: #1f1f1f;
+    border-color: var(--lime);
+    box-shadow: 0 0 0 3px rgba(198, 241, 53, 0.15);
+    background-color: var(--bg-hover);
 }
 
 /* Select specific styles */
 select {
     cursor: pointer;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 4.5L6 8L9.5 4.5' stroke='%23737373' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 4.5L6 8L9.5 4.5' stroke='%2394a3b8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 14px center;
-    padding-right: 40px;
+    background-position: right 16px center;
+    padding-right: 44px;
 }
 
 select option {
@@ -104,9 +146,9 @@ select option {
 
 /* Textarea specific */
 textarea {
-    min-height: 80px;
+    min-height: 88px;
     resize: vertical;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 /* Number input - hide spinners */
@@ -120,27 +162,29 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
-/* Submit button - vibrant gradient */
+/* Submit button - vibrant lime */
 button[type="submit"] {
     width: 100%;
-    margin-top: 8px;
-    padding: 16px 28px;
+    margin-top: 12px;
+    padding: 18px 32px;
     font-family: inherit;
     font-size: 15px;
-    font-weight: 600;
-    color: #0a0a0a;
-    background: linear-gradient(135deg, var(--coral) 0%, var(--amber) 100%);
+    font-weight: 700;
+    color: var(--bg-base);
+    background: var(--lime);
     border: none;
-    border-radius: 14px;
+    border-radius: 16px;
     cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
-    box-shadow: 0 4px 20px rgba(249, 112, 102, 0.3);
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 20px rgba(198, 241, 53, 0.3);
+    position: relative;
+    overflow: hidden;
 }
 
 button[type="submit"]:hover:not(:disabled) {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 24px rgba(249, 112, 102, 0.4);
-    filter: brightness(1.05);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(198, 241, 53, 0.4);
+    background: var(--lime-soft);
 }
 
 button[type="submit"]:active:not(:disabled) {
@@ -148,8 +192,8 @@ button[type="submit"]:active:not(:disabled) {
 }
 
 button[type="submit"]:disabled {
-    background: linear-gradient(135deg, #404040 0%, #525252 100%);
-    color: #737373;
+    background: var(--bg-hover);
+    color: var(--text-muted);
     cursor: not-allowed;
     box-shadow: none;
 }
@@ -163,25 +207,19 @@ button[type="submit"]:disabled {
 }
 
 .button-spinner {
-    width: 16px;
-    height: 16px;
-    border: 2px solid rgba(10, 10, 10, 0.3);
-    border-top-color: #0a0a0a;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(15, 20, 25, 0.3);
+    border-top-color: var(--bg-base);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
 }
 
-/* Style chips for select options visual enhancement */
-select:focus {
-    border-color: var(--amber);
-    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.15);
-}
-
 /* Responsive: Stack on mobile */
-@media (max-width: 480px) {
+@media (max-width: 520px) {
     .user-input {
         padding: 24px;
-        border-radius: 20px;
+        border-radius: 24px;
     }
     
     .form-grid {
@@ -190,6 +228,14 @@ select:focus {
     }
     
     button[type="submit"] {
-        padding: 14px 24px;
+        padding: 16px 28px;
+        border-radius: 14px;
+    }
+    
+    input,
+    select,
+    textarea {
+        padding: 14px 18px;
+        border-radius: 12px;
     }
 }

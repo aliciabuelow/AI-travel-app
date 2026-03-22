@@ -39,7 +39,7 @@ export default function App() {
     <main className="App">
       <header className="header">
         <span className="badge">Travel Planner</span>
-        <h1>Plan your trip in seconds</h1>
+        <h1>Plan your <span className="highlight">trip</span> in seconds</h1>
         <h2>Create detailed travel itineraries tailored to your preferences</h2>
       </header>
       
