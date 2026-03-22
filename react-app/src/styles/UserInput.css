@@ -2,9 +2,23 @@
 .user-input {
     width: 100%;
     padding: 32px;
-    background-color: #0f0f0f;
-    border: 1px solid #1f1f1f;
-    border-radius: 20px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle decorative gradient accent */
+.user-input::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--coral) 0%, var(--amber) 50%, var(--teal) 100%);
+    opacity: 0.8;
 }
 
 /* Form grid layout */
@@ -27,11 +41,13 @@
 
 /* Labels */
 label {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 6px;
     font-size: 13px;
-    font-weight: 500;
-    color: #a3a3a3;
-    letter-spacing: 0.01em;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
 }
 
 /* Base input styles */
@@ -39,15 +55,15 @@ input,
 select,
 textarea {
     width: 100%;
-    padding: 12px 16px;
+    padding: 14px 18px;
     font-family: inherit;
     font-size: 15px;
-    color: #fafafa;
-    background-color: #171717;
-    border: 1px solid #262626;
-    border-radius: 10px;
+    color: var(--text-primary);
+    background-color: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
     outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 input::placeholder,
@@ -58,14 +74,16 @@ textarea::placeholder {
 input:hover,
 select:hover,
 textarea:hover {
-    border-color: #404040;
+    border-color: var(--border-hover);
+    background-color: #1f1f1f;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-    border-color: #525252;
-    box-shadow: 0 0 0 3px rgba(82, 82, 82, 0.15);
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(46, 211, 183, 0.15);
+    background-color: #1f1f1f;
 }
 
 /* Select specific styles */
@@ -79,8 +97,8 @@ select {
 }
 
 select option {
-    background-color: #171717;
-    color: #fafafa;
+    background-color: var(--bg-elevated);
+    color: var(--text-primary);
     padding: 12px;
 }
 
@@ -102,34 +120,38 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
-/* Submit button */
+/* Submit button - vibrant gradient */
 button[type="submit"] {
     width: 100%;
     margin-top: 8px;
-    padding: 14px 28px;
+    padding: 16px 28px;
     font-family: inherit;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
     color: #0a0a0a;
-    background-color: #fafafa;
+    background: linear-gradient(135deg, var(--coral) 0%, var(--amber) 100%);
     border: none;
-    border-radius: 10px;
+    border-radius: 14px;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    box-shadow: 0 4px 20px rgba(249, 112, 102, 0.3);
 }
 
 button[type="submit"]:hover:not(:disabled) {
-    background-color: #e5e5e5;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(249, 112, 102, 0.4);
+    filter: brightness(1.05);
 }
 
 button[type="submit"]:active:not(:disabled) {
-    transform: scale(0.98);
+    transform: translateY(0) scale(0.98);
 }
 
 button[type="submit"]:disabled {
-    background-color: #262626;
-    color: #525252;
+    background: linear-gradient(135deg, #404040 0%, #525252 100%);
+    color: #737373;
     cursor: not-allowed;
+    box-shadow: none;
 }
 
 /* Button loading state */
@@ -137,26 +159,37 @@ button[type="submit"]:disabled {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .button-spinner {
-    width: 14px;
-    height: 14px;
-    border: 2px solid #404040;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(10, 10, 10, 0.3);
     border-top-color: #0a0a0a;
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
+}
+
+/* Style chips for select options visual enhancement */
+select:focus {
+    border-color: var(--amber);
+    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.15);
 }
 
 /* Responsive: Stack on mobile */
 @media (max-width: 480px) {
     .user-input {
         padding: 24px;
+        border-radius: 20px;
     }
     
     .form-grid {
         grid-template-columns: 1fr;
         gap: 16px;
+    }
+    
+    button[type="submit"] {
+        padding: 14px 24px;
     }
 }
