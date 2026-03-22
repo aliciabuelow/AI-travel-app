@@ -11,32 +11,40 @@
     --orange-dark: #ea580c;
     --orange-light: #fed7aa;
     
-    /* Secondary - dark teal for cards */
-    --teal-dark: #134e4a;
-    --teal-deeper: #0d3d3a;
+    /* Secondary - sky blue accents */
+    --sky-blue: #38bdf8;
+    --sky-blue-dark: #0ea5e9;
+    --sky-blue-light: #bae6fd;
+    --water-blue: #0284c7;
     
-    /* Background - vibrant green sky gradient */
-    --bg-sky-top: #d1fae5;
-    --bg-sky-mid: #a7f3d0;
-    --bg-sky-bottom: #6ee7b7;
+    /* Natural foliage greens */
+    --foliage-light: #86efac;
+    --foliage-mid: #4ade80;
+    --foliage-deep: #22c55e;
+    --forest-dark: #166534;
+    
+    /* Background - natural sky with foliage tint */
+    --bg-sky-top: #ecfdf5;
+    --bg-sky-mid: #bbf7d0;
+    --bg-sky-bottom: #86efac;
     
     /* Cloud colors */
-    --cloud-white: rgba(255, 255, 255, 0.85);
-    --cloud-shadow: rgba(255, 255, 255, 0.5);
+    --cloud-white: rgba(255, 255, 255, 0.9);
+    --cloud-shadow: rgba(255, 255, 255, 0.6);
     
     /* Card backgrounds */
     --bg-card-light: #ffffff;
-    --bg-card-dark: #1a4a46;
+    --bg-card-dark: #0f4c5c;
     
     /* Text */
-    --text-dark: #1a2e2b;
-    --text-medium: #3d5754;
-    --text-light: #f0f7f5;
-    --text-muted: #6b8583;
+    --text-dark: #14532d;
+    --text-medium: #166534;
+    --text-light: #f0fdf4;
+    --text-muted: #4d7c5a;
     
     /* Borders */
-    --border-light: rgba(26, 46, 43, 0.1);
-    --border-dark: rgba(255, 255, 255, 0.1);
+    --border-light: rgba(20, 83, 45, 0.1);
+    --border-dark: rgba(255, 255, 255, 0.12);
 }
 
 html {
@@ -153,23 +161,23 @@ h1 {
 /* Highlighted word - playful italic style */
 h1 .highlight {
     font-style: italic;
-    color: var(--teal-dark);
+    color: var(--water-blue);
     position: relative;
 }
 
-/* Wavy underline accent */
+/* Smooth natural squiggle underline */
 h1 .highlight::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: -4px;
-    right: -4px;
-    height: 12px;
-    background: url("data:image/svg+xml,%3Csvg width='40' height='12' viewBox='0 0 40 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6C5 6 5 2 10 2C15 2 15 10 20 10C25 10 25 2 30 2C35 2 35 6 40 6' stroke='%23f97316' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;
-    background-size: 40px 12px;
+    bottom: 2px;
+    left: -6px;
+    right: -6px;
+    height: 10px;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='10' viewBox='0 0 60 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5C4 5 6 3 10 3C14 3 16 7 20 7C24 7 26 3 30 3C34 3 36 7 40 7C44 7 46 3 50 3C54 3 56 5 60 5' stroke='%23f97316' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") repeat-x;
+    background-size: 60px 10px;
     background-position: center;
     z-index: -1;
-    opacity: 0.9;
+    opacity: 1;
 }
 
 h2 {

@@ -84,9 +84,9 @@ textarea:hover {
 input:focus,
 select:focus,
 textarea:focus {
-    border-color: var(--teal-dark);
+    border-color: var(--sky-blue-dark);
     background-color: #fff;
-    box-shadow: 0 0 0 4px rgba(19, 78, 74, 0.1);
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
 }
 
 /* Select specific styles */
