@@ -1,9 +1,14 @@
 import '../styles/Itinerary.css'
 import { MapPin } from 'lucide-react';
+import TypewriterLoading from './Typewriter.jsx';
 
 export default function Itinerary({ userData, itinerary, loading, error }) {
     if (loading) {
-        return <p className="loading-text">Planning something special...</p>;
+        return <p className="loading-text">
+            
+        <TypewriterLoading />
+
+        </p>;
     }
 
     if (error) {
