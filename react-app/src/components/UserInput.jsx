@@ -44,8 +44,8 @@ export default function UserInput({ onSubmit, loading }) {
                  <label htmlFor="budget">Budget</label>
                  <select name="budget" id="budget">
                     <option value="backpacker">Backpacker</option>
-                    <option value="mid-range">Mid-Range</option>
-                    <option value="high-end">High-End</option>
+                    <option value="budget-friendly">Budget-Friendly</option>
+                    <option value="Mid-range">Mid-range</option>
                     <option value="luxury">Luxury</option>
                  </select>
 
@@ -67,7 +67,7 @@ export default function UserInput({ onSubmit, loading }) {
                  >
                  </textarea>
                  <button type="submit" id="generate" name="generate" disabled={loading}>
-                    {loading ? "Generating" : "Generate"}
+                    {loading ? "Generating" : "Generate Itinerary"}
                  </button>
             </form>
         </div>

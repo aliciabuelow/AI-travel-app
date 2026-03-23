@@ -38,8 +38,8 @@ export default function App() {
   return (
   <div className="container">
   <div className="App">
-    <h1>Plan a trip in seconds</h1>
-    <h2>Generate a detailed travel itinerary</h2>
+    <h1>Your trip, planned <span className="accented">instantly</span></h1>
+    <h2>Generate a personalized travel itinerary based on your destination, style, and interests</h2>
     <UserInput onSubmit={handleUserInput} loading={loading} />
     <Itinerary userData={userData} itinerary={itinerary} loading={loading} error={error} />
   </div>

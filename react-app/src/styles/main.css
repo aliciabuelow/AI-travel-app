@@ -1,14 +1,15 @@
 :root {
     --bg-primary: #F7F6F2;
-    --bg-secondary: #D9D9D6;
+    --bg-secondary: #eaeae8;
     --bg-white: #FFF;
     --text-primary: #0F172A;
-    --accent-one: #75c967;
+    --accent-one: #84c161;
     --accent-two: #CFEDEA;
     --accent-three: #F6C76E;
-    --accent-four: #FF8A5B;
+    --accent-four: #f68e3e;
+    --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 body {
-    background-color: var(--bg-color);
+    background-color: var(--bg-primary);
 }

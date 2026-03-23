@@ -3,9 +3,14 @@
 }
 
 .itinerary-card {
-    border: 1px solid #949494;
+    display: block;
+    max-width: 550px;
+    margin: 40px auto;
+    padding: 24px 0;
+    background: var(--bg-white);
     border-radius: 32px;
-    padding: 16px 24px;
+    padding: 16px 20px;
+    box-shadow: var(--box-shadow);
 }
 
 .day-line {
