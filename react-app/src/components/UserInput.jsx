@@ -20,7 +20,6 @@ export default function UserInput({ onSubmit, loading }) {
         };
 
         onSubmit(data); //sending data up
-        event.target.reset();
     }
 
     return (

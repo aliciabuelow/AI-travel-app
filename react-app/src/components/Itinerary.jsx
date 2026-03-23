@@ -1,8 +1,9 @@
 import '../styles/Itinerary.css'
+import { MapPin } from 'lucide-react';
 
 export default function Itinerary({ userData, itinerary, loading, error }) {
     if (loading) {
-        return <p>Generating itinerary...</p>;
+        return <p className="loading-text">Planning something special...</p>;
     }
 
     if (error) {
@@ -42,6 +43,7 @@ export default function Itinerary({ userData, itinerary, loading, error }) {
 
            <div className="itinerary-card">
             <div className="itinerary-header">
+                <MapPin size={23} className="map-pin" />
                 <h2>{formattedDestination} Itinerary</h2>
             </div>
 
