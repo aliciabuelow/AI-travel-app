@@ -11,5 +11,9 @@
 }
 
 body {
-    background-color: var(--bg-primary);
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
 }

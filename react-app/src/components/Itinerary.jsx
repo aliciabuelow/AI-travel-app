@@ -39,18 +39,44 @@ export default function Itinerary({ userData, itinerary, loading, error }) {
 
     return (
         <div className="Itinerary">
-           <div className="itinerary-card">
-            <h2>{formattedDestination} Itinerary</h2>
 
-            <div className="itinerary-days">
+           <div className="itinerary-card">
+            <div className="itinerary-header">
+                <h2>{formattedDestination} Itinerary</h2>
+            </div>
+
+            <div className="itinerary-content">
                 {dayCards.map((day, index) => (
-                <div key={index} className="day-card">
-                    <h3>{day.title}</h3>
-                    <p>{day.text.trim()}</p>
-                </div>
+                <section key={index} className="day-block">
+                    <div className="day-heading">
+                        <div className="day-number">{index + 1}</div>
+                        <h3>{day.title}</h3>
+                    </div>
+
+                    <div className="day-text">
+                        {day.text
+                        .trim()
+                        .split("\n")
+                        .filter((line) => line.trim() !== "")
+                        .map((line, lineIndex) => {
+                            const parts = line.split(":");
+                            if (parts.length > 1) {
+                            return (
+                                <div key={lineIndex} className="day-row">
+                                <span className="day-label">{parts[0]}:</span>
+                                <span className="day-value">{parts.slice(1).join(":").trim()}</span>
+                                </div>
+                            );
+                            }
+
+                            return <p key={lineIndex}>{line}</p>;
+                        })}
+                    </div>
+                </section>
                 ))}
             </div>
             </div>
+
         </div>
     )
     

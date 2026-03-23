@@ -2,6 +2,7 @@ import '../styles/App.css'
 import { useState } from 'react';
 import UserInput from './UserInput.jsx';
 import Itinerary from './Itinerary.jsx';
+import HeroImage from '../assets/1314d726-6407-452c-a484-a10d7243222e.jfif';
 import axios from 'axios';
 
 export default function App() {
@@ -36,13 +37,28 @@ export default function App() {
   }
 
   return (
-  <div className="container">
-  <div className="App">
-    <h1>Your trip, planned <span className="accented">instantly</span></h1>
-    <h2>Generate a personalized travel itinerary based on your destination, style, and interests</h2>
-    <UserInput onSubmit={handleUserInput} loading={loading} />
-    <Itinerary userData={userData} itinerary={itinerary} loading={loading} error={error} />
+  <div className="page-shell">
+        <div className="hero-overlay">
+    <img src={HeroImage} alt="beach and ocean waves" className="hero-image" />
+      <div className="content-wrap">
+        <header className="hero-text">
+          <h1>
+            Your trip, planned <span className="accented">instantly</span>
+          </h1>
+          <h2>
+            Generate a personalized travel itinerary based on your trip details.
+          </h2>
+        </header>
+
+        <UserInput onSubmit={handleUserInput} loading={loading} />
+        <Itinerary
+          userData={userData}
+          itinerary={itinerary}
+          loading={loading}
+          error={error}
+        />
+      </div>
+    </div>
   </div>
-  </div>
-  )
+);
 }
