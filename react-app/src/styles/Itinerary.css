@@ -25,7 +25,6 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 8px;
   background: #1F2937;
   padding: 20px 24px 18px;
 }
@@ -51,7 +50,7 @@
 .day-block {
   padding: 18px 0 20px;
   border-bottom: 1px solid #ECEFED;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 .day-block:last-child {
