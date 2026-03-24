@@ -78,7 +78,29 @@ export default function Itinerary({ userData, itinerary, loading, error }) {
             return line.trim() !== "" && !lower.startsWith("title:");
           })
           .map((line, lineIndex) => {
-            const parts = line.split(":");
+            const trimmedLine = line.trim();
+            const lower = trimmedLine.toLowerCase();
+
+            if (lower === "helpful links:") {
+              return (
+                <div key={lineIndex} className="day-row">
+                  <span className="day-label">Helpful links:</span>
+                </div>
+              );
+            }
+
+            if (/^\d+\.\s*https?:\/\//i.test(trimmedLine)) {
+              const url = trimmedLine.replace(/^\d+\.\s*/, "");
+              return (
+                <div key={lineIndex} className="day-link">
+                  <a href={url} target="_blank" rel="noreferrer">
+                    {url}
+                  </a>
+                </div>
+              );
+            }
+
+            const parts = trimmedLine.split(":");
             if (parts.length > 1) {
               return (
                 <div key={lineIndex} className="day-row">
@@ -88,7 +110,7 @@ export default function Itinerary({ userData, itinerary, loading, error }) {
               );
             }
 
-            return <p key={lineIndex}>{line}</p>;
+            return <p key={lineIndex}>{trimmedLine}</p>;
           })}
       </div>
     </section>
