@@ -17,8 +17,10 @@ export default function UserInput({ onSubmit, loading }) {
             budget: formData.get("budget"),
             style: formData.get("style"),
             interests: formData.get("interests"),
+            travelDate: formData.get("travelDate"),
+            group: formData.get("group"),
         };
-
+        console.log(data);
         onSubmit(data); //sending data up
     }
 
@@ -56,7 +58,7 @@ export default function UserInput({ onSubmit, loading }) {
         <input 
             type="text" 
             id="travel-date"
-            name="travel-date" 
+            name="travelDate" 
             placeholder="e.g., December, late December, early spring, July 2029"
              />
       </div>
@@ -80,7 +82,7 @@ export default function UserInput({ onSubmit, loading }) {
               </button>
             ))}
           </div>
-          <input type="hidden" name="budget" value={selectedGroup} />
+          <input type="hidden" name="group" value={selectedGroup} />
         </div>
       </div>
 

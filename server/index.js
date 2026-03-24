@@ -17,7 +17,7 @@ app.post("/generate", async (req, res) => {
   const { destination, duration, travelDate, group, budget, style, interests } = req.body;
 
   const prompt = `
-Create a realistic, season-aware ${duration}-day travel itinerary for ${destination}.
+Create a realistic, highly specific ${duration}-day travel itinerary for ${destination}.
 
 Travel month/timeframe: ${travelDate}
 Group type: ${group}
@@ -27,49 +27,72 @@ Interests: ${interests}
 
 Rules:
 - Write only the itinerary
-- Do not include a title or introduction
+- Do not include a main title
+- Do not include an introduction
 - Do not include a conclusion
 - Do not use markdown
 - Do not use bullet points
 - Do not use asterisks or symbols
-- Do NOT provide alternative seasonal options or conditional suggestions or conditional statements (e.g. "in summer..." or "if winter..."). Only include recommendations that match the given month(s) of travel.
-- Treat the provided travel month or timeframe as fixed and certain, not optional
-- Seasonality and weather should strongly influence the itinerary, not just slightly adjust it
-- Before choosing activities, consider what is most appropriate and enjoyable in that destination during that time of travel
-- !! Prioritize activities, events, food, and experiences that are especially relevant to the season
-- Include well-known seasonal experiences that a traveler would reasonably expect in that destination at that time of year
-- Avoid recommending activities that are unpleasant, impractical, or low-value for the season unless they are major highlights and still realistic
-- For cold, rainy, snowy, or very hot seasons, balance outdoor sightseeing with indoor activities and comfort breaks
-- Do not describe the weather itself (e.g., "...in the cold air", "...in a warm environment"), just adjust the itinerary to fit the season
-- Avoid vague recommendations. Be specific with most suggestions (e.g., specific cuisines or specific restaurants, specific events or attractions). 
-- Keep each day realistic and geographically sensible
-- Minimize unnecessary travel time between activities within a day
-- A "relaxed" style should have downtime, "balanced" includes some leisure, and "packed" should be full of activities
-- Consider the group type when suggesting activities
-- Estimated cost should be a realistic daily range in local currency, specifying "per person"
-- Provide practical tips specific to each day
-- Use the exact labels: Day, Morning, Afternoon, Evening, Estimated cost, Tips
-- Do not add any extra text before, after, or between days
-- Each day's itinerary must be 200-250 words
-- Follow this format EXACTLY for each day
+- Do not add any text before the first day or after the last day
 
-Format:
+Formatting rules:
+- Follow the format exactly
+- Every day must include these lines in this exact order:
+  Day X
+  Title: ...
+  Morning: ...
+  Afternoon: ...
+  Evening: ...
+  Estimated cost: ...
+  Tips: ...
+- Never skip the Title line
+- The Title must always appear on the same line as "Title:"
+- The Title must be a short themed heading for that day
+- The Title must not be "Day 1", "Day 2", etc.
+- Do not combine labels onto one line
+- Do not omit any label
+
+Season and realism rules:
+- Treat the provided travel month/timeframe as fixed and certain
+- Build the itinerary for that exact time of year only
+- Do not mention other seasons
+- Do not give conditional advice such as "if in spring" or "in summer"
+- Prioritize experiences, food, events, and attractions that are especially relevant to that destination during that time of year
+- If the destination is known for major seasonal highlights during that month, include them prominently
+- Avoid generic recommendations when a more seasonally relevant option exists
+- Keep each day realistic and geographically sensible
+- Minimize unnecessary travel time within each day
+- Consider the group type when suggesting activities
+- A relaxed style should include downtime, a balanced style should include some leisure, and a packed style should feel full
+- Do not mention weather conditions that are uncertain or not strongly typical for that destination and month
+- Make recommendations based on realistic opening hours and typical visiting times where possible
+- Only mention real, well-known places or clearly generic categories (e.g., "a local ramen shop"); avoid inventing specific business names unless they are widely known landmarks
+- Keep locations within each day geographically close and logically ordered to minimize travel time
+- Avoid unnecessary travel across distant neighborhoods within the same day unless clearly justified
+
+Detail rules:
+- Make each Morning, Afternoon, and Evening section 2-3 sentences long
+- Be specific about places, foods, neighborhoods, or experiences where possible
+- Estimated cost should be a realistic daily range in local currency and say "per person"
+- Tips should be practical and specific to that exact day
+
+Follow this format exactly:
 
 Day 1
-Morning:
-Afternoon:
-Evening:
-Estimated cost:
-Tips:
+Title: ...
+Morning: ...
+Afternoon: ...
+Evening: ...
+Estimated cost: ...
+Tips: ...
 
 Day 2
-Morning:
-Afternoon:
-Evening:
-Estimated cost:
-Tips:
-
-Keep each day concise and practical.
+Title: ...
+Morning: ...
+Afternoon: ...
+Evening: ...
+Estimated cost: ...
+Tips: ...
 
 If the destination is not a real place, respond with:
 INVALID_DESTINATION

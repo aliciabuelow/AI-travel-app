@@ -4,11 +4,11 @@ import TypewriterLoading from './Typewriter.jsx';
 
 export default function Itinerary({ userData, itinerary, loading, error }) {
     if (loading) {
-        return <p className="loading-text">
+        return <div className="loading-text">
             
         <TypewriterLoading />
 
-        </p>;
+        </div>;
     }
 
     if (error) {
@@ -53,34 +53,47 @@ export default function Itinerary({ userData, itinerary, loading, error }) {
             </div>
 
             <div className="itinerary-content">
-                {dayCards.map((day, index) => (
-                <section key={index} className="day-block">
+                {dayCards.map((day, index) => {
+                const titleLine = day.text
+                .split("\n")
+                .find((line) => line.toLowerCase().startsWith("title:"));
+
+                const cleanTitle = titleLine
+                ? titleLine.replace(/^title:/i, "").trim() || `Day ${index + 1}`
+                : `Day ${index + 1}`;
+
+                return (
+                    <section key={index} className="day-block">
                     <div className="day-heading">
-                        <div className="day-number">{index + 1}</div>
-                        <h3>{day.title}</h3>
+                    <div className="day-number">{index + 1}</div>
+                    <h3>{cleanTitle}</h3>
                     </div>
 
-                    <div className="day-text">
-                        {day.text
-                        .trim()
-                        .split("\n")
-                        .filter((line) => line.trim() !== "")
-                        .map((line, lineIndex) => {
-                            const parts = line.split(":");
-                            if (parts.length > 1) {
-                            return (
-                                <div key={lineIndex} className="day-row">
-                                <span className="day-label">{parts[0]}:</span>
-                                <span className="day-value">{parts.slice(1).join(":").trim()}</span>
-                                </div>
-                            );
-                            }
+      <div className="day-text">
+        {day.text
+          .trim()
+          .split("\n")
+          .filter((line) => {
+            const lower = line.toLowerCase();
+            return line.trim() !== "" && !lower.startsWith("title:");
+          })
+          .map((line, lineIndex) => {
+            const parts = line.split(":");
+            if (parts.length > 1) {
+              return (
+                <div key={lineIndex} className="day-row">
+                  <span className="day-label">{parts[0]}:</span>
+                  <span className="day-value">{parts.slice(1).join(":").trim()}</span>
+                </div>
+              );
+            }
 
-                            return <p key={lineIndex}>{line}</p>;
-                        })}
-                    </div>
-                </section>
-                ))}
+            return <p key={lineIndex}>{line}</p>;
+          })}
+      </div>
+    </section>
+  );
+})}
             </div>
             </div>
 

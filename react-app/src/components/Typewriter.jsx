@@ -6,6 +6,7 @@ export default function TypewriterLoading() {
         <Typewriter
             options={{
                 strings: ['Designing your trip...', 'Finding the best spots...', 'Finalizing the details...'],
+                delay: 220,
                 autoStart: true,
                 loop: true,
             }}

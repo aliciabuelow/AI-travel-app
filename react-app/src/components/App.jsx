@@ -8,7 +8,7 @@ import axios from 'axios';
 export default function App() {
   const [userData, setUserData] = useState(null);
   const [itinerary, setItinerary] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   async function handleUserInput(data) {
