@@ -81,25 +81,6 @@ export default function Itinerary({ userData, itinerary, loading, error }) {
             const trimmedLine = line.trim();
             const lower = trimmedLine.toLowerCase();
 
-            if (lower === "helpful links:") {
-              return (
-                <div key={lineIndex} className="day-row">
-                  <span className="day-label">Helpful links:</span>
-                </div>
-              );
-            }
-
-            if (/^\d+\.\s*https?:\/\//i.test(trimmedLine)) {
-              const url = trimmedLine.replace(/^\d+\.\s*/, "");
-              return (
-                <div key={lineIndex} className="day-link">
-                  <a href={url} target="_blank" rel="noreferrer">
-                    {url}
-                  </a>
-                </div>
-              );
-            }
-
             const parts = trimmedLine.split(":");
             if (parts.length > 1) {
               return (
