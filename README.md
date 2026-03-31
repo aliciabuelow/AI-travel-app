@@ -5,14 +5,12 @@ Welcome to my full-stack travel planner, utilizing AI to generate realistic, sea
 ## Live Demo
 https://ai-travel-app-mauve.vercel.app/
 
---
 
 ## Overview
 
 This application generates personalized multi-day travel itineraries based on user input (incl. destination, duration, travel style, budget, timing, and group type).
 Each itinerary is structured into daily plans with themed titles, time-of-day breakdowns, estimated daily cost, and practical tips. The output is formatted and designed to feel realistic and easy to read.
 
---
 
 ## Features
 
@@ -22,7 +20,6 @@ Each itinerary is structured into daily plans with themed titles, time-of-day br
 - Clean, responsive UI with interactive inputs and loading states
 - Full-stack architecture with frontend-backend API communication
 
---
 
 ## Tech Stack
 
@@ -34,7 +31,6 @@ Each itinerary is structured into daily plans with themed titles, time-of-day br
 - CSS3
 - Vercel (frontend) & Render (backend)
 
---
 
 ## Challenges/Learning
 
