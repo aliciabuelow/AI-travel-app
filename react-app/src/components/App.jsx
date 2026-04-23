@@ -46,7 +46,7 @@ export default function App() {
             Your trip, planned <span className="accented">instantly</span>
           </h1>
           <h2>
-            Generate a personalized travel itinerary based on your trip details.
+            Generate a personalized travel itinerary based on your trip details
           </h2>
         </header>
 
