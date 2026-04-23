@@ -132,7 +132,7 @@ export default function UserInput({ onSubmit, loading }) {
           name="interests"
           id="interests"
           placeholder="e.g., museums, food, nightlife, culture, relaxation, hiking"
-          rows={1}
+          rows={2}
           maxLength={100}
           required
         ></textarea>
